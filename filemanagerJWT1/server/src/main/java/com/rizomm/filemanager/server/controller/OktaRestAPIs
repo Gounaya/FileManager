@@ -1,0 +1,19 @@
+package com.rizomm.filemanager.server.controller;
+
+import io.swagger.annotations.Api;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.security.Principal;
+
+/**
+ * For Okta authentication
+ */
+@Api(value = "Okta authentication" ,description = "Allowed to test Authentication with Okta")
+@RestController
+public class OktaRestAPIs {
+    @GetMapping("/")
+    public String echoTheUsersEmailAddress(Principal principal) {
+        return "Hey there! Your email address is: " + principal.getName();
+    }
+}
